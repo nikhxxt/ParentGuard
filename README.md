@@ -43,3 +43,35 @@ ParentGuard is a cross-platform parental control project built for students and 
 2. Read `docs/ANDROID_SETUP.md` for Android child setup
 3. Read `docs/SUPERVISED_IPHONE.md` for supervised iPhone setup
 4. Clone `parent_dashboard/` and run locally for testing
+
+
+ParentGuard/                             # Root repo
+│
+├── README.md                            # Root README: project overview, features, limitations
+│
+├── docs/                                # Documentation folder
+│   ├── ANDROID_SETUP.md                 # Android child app setup guide
+│   ├── CONSENT_FLOW.md                  # Consent & onboarding flow explanation
+│   └── SUPERVISED_IPHONE.md            # iPhone supervision setup & limitations
+│
+├── android_child/                        # Android child app folder
+│   ├── README.md                         # Android child-specific documentation
+│   ├── AndroidManifest.xml               # Android manifest additions for permissions/service
+│   ├── MainActivity.kt                   # Main Android activity
+│   └── NotificationListener.kt           # Notification listener service
+│
+├── ios_child_pwa/                        # iOS PWA child app folder
+│   ├── README.md                         # iOS child app-specific documentation
+│   └── src/                              # Source folder
+│       └── index.html                    # PWA HTML file (limited features)
+│
+├── parent_dashboard/                      # React parent dashboard folder
+│   ├── README.md                         # Dashboard-specific documentation
+│   └── src/                              # React source code
+│       ├── App.js                        # Main dashboard component
+│       └── firebase.js                    # Firebase configuration for React app
+│
+├── scripts/                              # Backend/helper scripts
+│   ├── README.md                         # Scripts documentation
+│   └── firebase-init.js                  # Test script to add sample data to Firebase
+
