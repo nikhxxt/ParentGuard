@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParentGuard Child PWA</title>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
+      import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCoDFCwIdLOg9PhDH7ggTQBjHtZK1xRbgk",
+        authDomain: "parentguard-106c8.firebaseapp.com",
+        projectId: "parentguard-106c8",
+        storageBucket: "parentguard-106c8.firebasestorage.app",
+        messagingSenderId: "50414256935",
+        appId: "1:50414256935:web:6c53309ee650c0aca79f02",
+        measurementId: "G-SGY59CWTYB"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      async function addTestData() {
+        const docRef = await addDoc(collection(db, "children/child_001/notifications"), {
+          app: "TestApp",
+          title: "Hello",
+          text: "ParentGuard PWA test",
+          timestamp: Date.now()
+        });
+        console.log("Document written with ID: ", docRef.id);
+      }
+
+      addTestData();
+    </script>
+  </head>
+  <body>
+    <h1>ParentGuard Child PWA</h1>
+    <p>Open console to see test data added to Firebase Firestore.</p>
+  </body>
+</html>
