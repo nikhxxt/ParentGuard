@@ -1,27 +1,41 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>ParentGuard iOS Child</title>
-</head>
-<body>
-    <h1>ParentGuard iOS Child (PWA)</h1>
-    <p>This is limited telemetry for supervised iPhone devices.</p>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
-    <script>
-        const firebaseConfig = {
-            apiKey: "<YOUR_FIREBASE_API_KEY>",
-            authDomain: "<YOUR_FIREBASE_AUTH_DOMAIN>",
-            projectId: "<YOUR_FIREBASE_PROJECT_ID>"
-        };
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParentGuard Child PWA</title>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
+      import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-firestore.js";
 
-        // Example: send consent
-        db.collection("children").doc("child_iphone").set({
-            consent: true,
-            timestamp: Date.now()
+      const firebaseConfig = {
+        apiKey: "AIzaSyCoDFCwIdLOg9PhDH7ggTQBjHtZK1xRbgk",
+        authDomain: "parentguard-106c8.firebaseapp.com",
+        projectId: "parentguard-106c8",
+        storageBucket: "parentguard-106c8.firebasestorage.app",
+        messagingSenderId: "50414256935",
+        appId: "1:50414256935:web:6c53309ee650c0aca79f02",
+        measurementId: "G-SGY59CWTYB"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      async function addTestData() {
+        const docRef = await addDoc(collection(db, "children/child_001/notifications"), {
+          app: "TestApp",
+          title: "Hello",
+          text: "ParentGuard PWA test",
+          timestamp: Date.now()
         });
+        console.log("Document written with ID: ", docRef.id);
+      }
+
+      addTestData();
     </script>
-</body>
+  </head>
+  <body>
+    <h1>ParentGuard Child PWA</h1>
+    <p>Open console to see test data added to Firebase Firestore.</p>
+  </body>
 </html>
