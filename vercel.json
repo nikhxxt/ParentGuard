@@ -12,21 +12,10 @@
     }
   ],
   "routes": [
-    {
-      "src": "/dashboard/(.*)",
-      "dest": "parent_dashboard/$1"
-    },
-    {
-      "src": "/child/(.*)",
-      "dest": "ios_child_pwa/$1"
-    },
-    {
-      "src": "/child",
-      "dest": "ios_child_pwa/index.html"
-    },
-    {
-      "src": "/dashboard",
-      "dest": "parent_dashboard/build/index.html"
-    }
+    { "src": "/dashboard/(.*)", "dest": "parent_dashboard/$1" },
+    { "src": "/dashboard", "dest": "parent_dashboard/build/index.html" },
+    { "src": "/child/(.*)", "dest": "ios_child_pwa/$1" },
+    { "src": "/child", "dest": "ios_child_pwa/index.html" }
   ]
 }
+
